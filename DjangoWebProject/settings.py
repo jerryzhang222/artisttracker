@@ -4,7 +4,8 @@ Django settings for DjangoWebProject project.
 
 from os import path
 from mongoengine import connect
-connect('artist-tracker', username='admin', password='admin')
+
+connect('artist-tracker')
 
 
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
