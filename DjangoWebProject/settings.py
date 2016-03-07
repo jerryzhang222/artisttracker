@@ -2,10 +2,15 @@
 Django settings for DjangoWebProject project.
 """
 
+'''
+Instructions on how to setup mongo connections properly
+http://petrkout.com/programming/setting-up-django-with-mongodb/
+'''
+
+
 from os import path
 from mongoengine import connect
-
-connect('artist-tracker')
+connect('artist-tracker') # connect to our database instance
 
 
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
