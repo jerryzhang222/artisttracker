@@ -9,29 +9,22 @@ import mongoengine.fields as fields
 
 # Create your models here.
 
-
-class Employee(me.Document):
-    email = fields.StringField(require=True)
-    first_name = fields.StringField(max_length=50)
-    last_name = fields.StringField(max_length=50)
-
-
 class Artist(me.Document):
     # As per the standard soundcloud /users call
-    soundcloud_id = fields.LongField(require=True)
-    permalink = fields.StringField(max_length=200)
-    username = fields.StringField(max_length=200)
-    uri = fields.URLField(max_length=200)
-    permalink_url = fields.URLField(max_length=200)
-    avatar_url = fields.URLField(max_length=200)
-    country = fields.StringField(max_length=200)
-    full_name = fields.StringField(max_length=200)
-    city = fields.StringField(max_length=200)
-    description = fields.StringField(max_length=500)
-    discogs_name = fields.StringField(max_length=200)
-    myspace_name = fields.StringField(max_length=200)
-    website = fields.URLField(max_length=200)
-    website_title = fields.StringField(max_length=200)
+    soundcloud_id = fields.LongField(require=True, unique=True)
+    permalink = fields.StringField()
+    username = fields.StringField()
+    uri = fields.URLField()
+    permalink_url = fields.URLField()
+    avatar_url = fields.URLField()
+    country = fields.StringField()
+    full_name = fields.StringField()
+    city = fields.StringField()
+    description = fields.StringField()
+    discogs_name = fields.StringField()
+    myspace_name = fields.StringField()
+    website = fields.URLField()
+    website_title = fields.StringField()
     # not stored: online | online status (boolean)
     track_count = fields.IntField()
     playlist_count = fields.IntField()
@@ -43,19 +36,22 @@ class Artist(me.Document):
     # Subresources
     # tracks = fields.ListField(fields.ReferenceField(Track))
 
+    def __str__(self):
+        return str(self.soundcloud_id)
+
 
 class Track(me.Document):
     track_id = fields.LongField(require=True)
     created_at = fields.DateTimeField()
     user_id = fields.ReferenceField(Artist)
     title = fields.StringField()
-    permalink = fields.URLField(max_length=200)
-    uri = fields.URLField(max_length=200)
-    sharing = fields.StringField(max_length=200)
-    embeddable_by = fields.StringField(max_length=200)
-    purchase_url = fields.URLField(max_length=200)
-    artwork_url = fields.URLField(max_length=200)
-    description = fields.StringField(max_length=200)
+    permalink = fields.URLField()
+    uri = fields.URLField()
+    sharing = fields.StringField()
+    embeddable_by = fields.StringField()
+    purchase_url = fields.URLField()
+    artwork_url = fields.URLField()
+    description = fields.StringField()
     label = fields.ReferenceField(Artist)  #?
     duration = fields.IntField()
     genre = fields.StringField()
