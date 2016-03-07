@@ -10,7 +10,6 @@ import time
 # # redirect user to authorize URL
 # redirect client.authorize_url()
 
-
 # create a client object with your app credentials
 client = soundcloud.Client(client_id='c892b76c132acff5771cb267a7e5a618')
 
