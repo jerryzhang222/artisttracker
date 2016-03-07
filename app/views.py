@@ -10,12 +10,6 @@ from .models import Artist, Track
 
 
 def index(request):
-    employee = Employee.objects.create(
-        email="example@company.com",
-        first_name="lol",
-        last_name="haha"
-    )
-    employee.save()
     artist = Artist.objects.create(
         soundcloud_id=1234
     )
