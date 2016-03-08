@@ -17,6 +17,7 @@ connect('MongoLab-wa', host="ds064278.mlab.com", port=64278, username="admin", p
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
 DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = (
     'localhost',
@@ -184,7 +185,6 @@ TEMPLATES = [
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
-            'debug': DEBUG,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
